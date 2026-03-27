@@ -1,0 +1,29 @@
+{
+  "name": "opengravity",
+  "version": "1.0.0",
+  "description": "A local, private, functional personal AI agent accessible via Telegram",
+  "main": "src/index.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx src/index.ts",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "axios": "^1.7.0",
+    "better-sqlite3": "^11.5.0",
+    "dotenv": "^16.4.5",
+    "firebase-admin": "^13.7.0",
+    "fs-extra": "^11.3.4",
+    "grammy": "^1.32.0",
+    "groq-sdk": "^0.8.0",
+    "openai": "^4.104.0"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.11",
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^22.19.15",
+    "form-data": "^4.0.5",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3"
+  }
+}
