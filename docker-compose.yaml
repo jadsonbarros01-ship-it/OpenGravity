@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  bot:
+    build: .
+    container_name: opengravity_bot
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - ./memory.db:/app/memory.db
+      - ./credentials.json:/app/credentials.json
+      - ./service-account.json:/app/service-account.json
