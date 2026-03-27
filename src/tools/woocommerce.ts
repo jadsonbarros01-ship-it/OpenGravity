@@ -1,6 +1,11 @@
 import type { Tool } from './index.js';
 import axios from 'axios';
 import { ENV } from '../config/env.js';
+import https from 'https';
+
+const httpsAgent = new https.Agent({
+  rejectUnauthorized: false
+});
 
 export const wooCommerceTool: Tool = {
   name: "woocommerce",
@@ -25,9 +30,14 @@ export const wooCommerceTool: Tool = {
     const baseUrl = `${ENV.WOO_SHOP_URL}/wp-json/wc/v3`;
 
     try {
+      const config = {
+        headers: { 'Authorization': `Basic ${auth}` },
+        httpsAgent: httpsAgent
+      };
+
       if (action === "list_products") {
         const response = await axios.get(`${baseUrl}/products`, {
-          headers: { 'Authorization': `Basic ${auth}` },
+          ...config,
           params: { per_page: 5 }
         });
         const products = response.data.map((p: any) => `${p.name} (Preço: ${p.price}, Estoque: ${p.stock_status})`).join('\n');
@@ -36,7 +46,7 @@ export const wooCommerceTool: Tool = {
       
       if (action === "get_product_count") {
           const response = await axios.get(`${baseUrl}/products`, {
-            headers: { 'Authorization': `Basic ${auth}` },
+            ...config,
             params: { per_page: 1 }
           });
           const total = response.headers['x-wp-total'];
@@ -46,7 +56,7 @@ export const wooCommerceTool: Tool = {
       return "Ação não suportada.";
     } catch (error: any) {
       console.error("[WooCommerce Tool] Error:", error.message);
-      return `Erro ao acessar WooCommerce: ${error.message}`;
+      return `Erro ao acessar WooCommerce: ${error.message}. Verifique se o URL da loja está correto (http vs https).`;
     }
   }
 };
