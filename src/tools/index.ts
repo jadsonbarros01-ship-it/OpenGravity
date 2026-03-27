@@ -7,10 +7,12 @@ export type Tool = {
 
 import { getCurrentTimeTool } from './get_current_time.js';
 import { wooCommerceTool } from './woocommerce.js';
+import { gmailTool } from './gmail.js';
 
 export const TOOLS: Tool[] = [
   getCurrentTimeTool,
   wooCommerceTool,
+  gmailTool,
 ];
 
 // Map for quick execution
