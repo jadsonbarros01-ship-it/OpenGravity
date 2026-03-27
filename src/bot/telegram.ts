@@ -59,7 +59,7 @@ bot.on("message:voice", async (ctx) => {
 
     try {
         const file = await ctx.getFile();
-        const inputPath = path.join(os.tmpdir(), `voice_in_${userId}.oga`);
+        const inputPath = path.join(os.tmpdir(), `voice_in_${userId}.ogg`);
         const outputPath = path.join(os.tmpdir(), `voice_out_${userId}.mp3`);
         
         // Download using the bot's token (standard grammY way for small files)
