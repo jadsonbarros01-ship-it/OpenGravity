@@ -9,6 +9,10 @@ export const groq = ENV.GROQ_API_KEY && ENV.GROQ_API_KEY !== 'SUSTITUYE_POR_EL_T
   ? new Groq({ apiKey: ENV.GROQ_API_KEY }) 
   : null;
 
+console.log(`[LLM Config] ElevenLabs Key: ${ENV.ELEVENLABS_API_KEY ? 'Present' : 'MISSING'}`);
+console.log(`[LLM Config] OpenAI Key: ${ENV.OPENAI_API_KEY ? 'Present' : 'MISSING'}`);
+console.log(`[LLM Config] Woo URL: ${ENV.WOO_SHOP_URL || 'MISSING'}`);
+
 const openai = ENV.OPENAI_API_KEY ? new OpenAI({ apiKey: ENV.OPENAI_API_KEY }) : null;
 
 export const openRouter = ENV.OPENROUTER_API_KEY && ENV.OPENROUTER_API_KEY !== 'SUSTITUYE_POR_EL_TUYO'
