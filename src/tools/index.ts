@@ -8,11 +8,13 @@ export type Tool = {
 import { getCurrentTimeTool } from './get_current_time.js';
 import { wooCommerceTool } from './woocommerce.js';
 import { gmailTool } from './gmail.js';
+import { agentFactoryTool } from './agent_factory.js';
 
 export const TOOLS: Tool[] = [
   getCurrentTimeTool,
   wooCommerceTool,
   gmailTool,
+  agentFactoryTool,
 ];
 
 // Map for quick execution
