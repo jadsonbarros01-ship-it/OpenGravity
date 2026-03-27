@@ -10,4 +10,5 @@ services:
     volumes:
       - ./memory.db:/app/memory.db
       - ./credentials.json:/app/credentials.json
+      - ./token.json:/app/token.json
       - ./service-account.json:/app/service-account.json
