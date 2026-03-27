@@ -18,11 +18,9 @@ RUN npm install
 
 COPY . .
 
-# Build the project
-RUN npm run build
-
-# Port 7860 is required for Hugging Face Spaces
+# Não precisamos fazer build, pois vamos rodar através do tsx
+# (Porta exigida peloo Hugging Face, e sem problema na Hostinger)
 EXPOSE 7860
 
-# Run using node on the compiled dist
-CMD [ "node", "dist/index.js" ]
+# Rodar direto o código fonte com tsx
+CMD [ "npm", "start" ]
