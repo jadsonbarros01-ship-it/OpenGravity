@@ -11,6 +11,9 @@ export const ENV = {
   GOOGLE_APPLICATION_CREDENTIALS: process.env.GOOGLE_APPLICATION_CREDENTIALS || '',
   ELEVENLABS_API_KEY: process.env.ELEVENLABS_API_KEY || '',
   OPENAI_API_KEY: process.env.OPENAI_API_KEY || '',
+  WOO_SHOP_URL: process.env.WOO_SHOP_URL || '',
+  WOO_CONSUMER_KEY: process.env.WOO_CONSUMER_KEY || '',
+  WOO_CONSUMER_SECRET: process.env.WOO_CONSUMER_SECRET || '',
 };
 
 // Validate mandatory fields
